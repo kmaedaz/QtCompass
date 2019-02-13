@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <!--meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" -->
+
+    <meta name="viewport"  content="width=480, height=854,  user-scalable=no,target-densityDpi=device-dpi" >
+
+    <meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+
+    <meta charset="utf-8">
+    <title>QtCompass</title>
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+
+<div id="application">
+    <div id="stat"></div>
+    <div id="rotation"><canvas id="canvas" width="392" height="392"></canvas></div>
+    <div id="shadow"></div>
+    <div id="direction"></div>
+    <div id="angle"></div>
+</div>
+ <script type="text/javascript"  src="./cordova.js" ></script>
+ <script type="text/javascript" src="./js/jquery-1.10.2.min.js"  ></script>
+ <script type="text/javascript" src="./js/main.js"  ></script>
+
+<script>
+
+// ウォッチIDが現在の `watchHeading`
+var watchID = null;
+document.addEventListener("deviceready",onDeviceReady,false);
+
+
+function onDeviceReady()
+{
+    watchID = navigator.compass.watchHeading(successFunc, errorFunc,
+    {
+        frequency: 200
+    });
+
+    admob.setOptions({
+        publisherId: "ca-app-pub-4190072104113498/4270800366", // Required
+        bannerAtTop: true, // set to true, to put banner at top
+        overlap: true, // set to true, to allow banner overlap webview
+        interstitialAdId: "", // Optional
+		adSize: admob.AD_SIZE.SMART_BANNER,
+        tappxIdAndroid: "", // Optional
+        tappxShare: "" ,// Optional
+//		isTesting: true,// Optional
+		autoShow: true,
+    });
+
+    // Start showing banners (atomatic when autoShowBanner is set to true)
+    //admob.createBannerView();
+    
+    setTimeout(function(){
+    	admob.createBannerView();
+	}, 3000);
+    
+    // Request interstitial (will present automatically when autoShowInterstitial is set to true)
+    //admob.requestIntertitial();
+
+
+
+
+
+}
+
+
+// コンパスの取得に成功した場合の処理
+function successFunc(heading){
+    _onDeviceOrientation(heading.magneticHeading);
+    console.log( "heading:" + heading.magneticHeading);
+   document.getElementById("stat").innerHTML = heading.magneticHeading;
+}
+// エラーの場合
+function errorFunc(){
+    document.getElementById("stat").innerHTML = "Error!!";
+}
+
+
+</script>
+
+</body>
+</html>

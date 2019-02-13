@@ -1,0 +1,75 @@
+/* This is a CSS file */
+
+html, body {
+    width:100%; 
+    height: 100%; 
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    background: black;
+    -webkit-user-select: none;
+}
+
+#application {
+    position: relative;
+    width:100%; 
+    height: 100%; 
+    margin: 0px;
+    padding: 0px;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-image: url('../images/compass_bg_new.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    overflow: hidden;
+}
+
+#rotation{
+    position: absolute;
+    left: 44px;
+    top: 351px;
+    background-image: url('../images/compass_rotation.png');
+    background-repeat: no-repeat;
+    width: 392px;
+    height: 392px;
+    -webkit-transition: all 0.6s ease-out;
+    -webkit-transform: rotate(0deg);
+}
+
+#shadow{
+    position: absolute;
+    left: 44px;
+    top: 351px;
+    background-image:url('../images/compass_cover.png');
+    background-repeat: no-repeat;
+    width: 392px;
+    height: 392px;
+}
+
+#direction{
+    position: absolute;
+    left: 44px;
+    top: 95px ;
+    width: 392px;
+    height: 37px;
+    text-align: center;
+    font-weight: bold;
+    color: #FFFFFF;
+    font-family: verdana;
+    font-size: 32pt;
+}
+
+#angle{
+    position: absolute;
+    left: 44px;
+    top: 120px ;
+    width: 392px;
+    height: 70px;
+    text-align: center;
+    font-weight: bold;
+    color: #FFFFFF;
+    font-family: verdana;
+    font-size: 52pt;
+}
