@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <!--meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" -->
-
-    <meta name="viewport"  content="width=480, height=854,  user-scalable=no,target-densityDpi=device-dpi" >
+	<!-- meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"  -->
+	<meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover" >
+    <!--meta name="viewport"  content="width=480, height=854,  user-scalable=no,target-densityDpi=device-dpi, viewport-fit=cover" -->
 
     <meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
 
@@ -39,14 +39,14 @@ function onDeviceReady()
     });
 
     admob.setOptions({
-        publisherId: "ca-app-pub-4190072104113498/4270800366", // Required
+        publisherId: "publisherId_xxxxxx", // Required
         bannerAtTop: true, // set to true, to put banner at top
         overlap: true, // set to true, to allow banner overlap webview
         interstitialAdId: "", // Optional
 		adSize: admob.AD_SIZE.SMART_BANNER,
         tappxIdAndroid: "", // Optional
         tappxShare: "" ,// Optional
-//		isTesting: true,// Optional
+		isTesting: false,// Optional
 		autoShow: true,
     });
 
@@ -55,7 +55,7 @@ function onDeviceReady()
     
     setTimeout(function(){
     	admob.createBannerView();
-	}, 3000);
+	}, 4000);
     
     // Request interstitial (will present automatically when autoShowInterstitial is set to true)
     //admob.requestIntertitial();

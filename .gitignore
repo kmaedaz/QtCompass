@@ -45,3 +45,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+hooks
+node_modules
+platforms
+plugins
+QtCompass.ketsotre
